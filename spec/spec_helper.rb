@@ -1,0 +1,1 @@
+require 'ero_getter'

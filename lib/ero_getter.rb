@@ -16,7 +16,7 @@ class EroGetter
 
   class << self
     def url_mapping
-      @@url_mapping ||= {}
+      @url_mapping ||= {}
     end
     def add_mapping(regex, strategy)
       url_mapping[regex] = strategy

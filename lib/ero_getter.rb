@@ -21,5 +21,8 @@ class EroGetter
     def add_mapping(regex, strategy)
       url_mapping[regex] = strategy
     end
+    def clean
+      @url_mapping = {}
+    end
   end
 end

@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe EroGetter do
+  before do
+    EroGetter.clean
+  end
+
   let(:regex) { %r{http://example.com/\d+.html} }
   subject { @ero_getter }
   describe :class_methods do

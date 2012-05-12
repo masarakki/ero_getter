@@ -3,6 +3,13 @@ require "ero_getter/version"
 class EroGetter
   autoload :Downloader, 'ero_getter/downloader'
 
+  def detect(url)
+    self.class.url_mapping.each_pair do |regex, klazz|
+      return klazz if url.match regex
+    end
+    nil
+  end
+
   class << self
     def url_mapping
       @@url_mapping ||= {}

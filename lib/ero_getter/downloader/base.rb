@@ -3,9 +3,10 @@ require 'httpclient'
 require 'nokogiri'
 
 class EroGetter::Downloader::Base
-  def initialize(url)
+  def initialize(url, direction = 0)
     raise unless url.match url_regex
     @url = url
+    @direction = direction
   end
 
   def base_dir
@@ -14,6 +15,18 @@ class EroGetter::Downloader::Base
 
   def http_client
     @http_client ||= HTTPClient.new
+  end
+
+  def url
+    @url
+  end
+
+  def document
+    @document ||= Nokogiri::HTML(open(url).read)
+  end
+
+  def title
+    @title ||= document.title
   end
 
   class << self
@@ -29,17 +42,18 @@ class EroGetter::Downloader::Base
       end
       EroGetter.add_mapping(regex, self)
     end
+
+    def target(css_selector, &block)
+      define_method(:targets) do
+        unless instance_variable_defined?(:@targets)
+          items = document.css(css_selector).map do |elm|
+            yield(elm)
+          end
+          instance_variable_set(:@targets, items.compact)
+        end
+        instance_variable_get(:@targets)
+      end
+    end
   end
 
-  def url
-    @url
-  end
-
-  def document
-    @document ||= Nokogiri::HTML(open(url).read)
-  end
-
-  def title
-    @title ||= document.title
-  end
 end

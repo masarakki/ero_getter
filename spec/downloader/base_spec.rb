@@ -7,6 +7,9 @@ describe EroGetter::Downloader::Base do
     @klazz = Class.new(EroGetter::Downloader::Base) do
       name 'NijiEro BBS'
       url _regex
+      target "ul#sources li a" do |elm|
+        elm[:href]
+      end
     end
     @klazz.stub(:to_s).and_return('TestClass')
   end
@@ -30,6 +33,8 @@ describe EroGetter::Downloader::Base do
       its(:document) { should be_a Nokogiri::HTML::Document }
       its(:title) { should == 'EroGetter Server' }
       its(:url) { should == 'http://example.net/10101010.html' }
+      its(:targets) { should == ['https://github.com/masarakki/ero_getter_server',
+          'https://github.com/masarakki/ero_getter_chrome_extension'] }
     end
     context :url_mismatch do
       it {

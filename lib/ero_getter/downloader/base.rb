@@ -2,6 +2,11 @@ require 'active_support/inflector'
 require 'httpclient'
 
 class EroGetter::Downloader::Base
+  def initialize(url)
+    raise unless url.match url_regex
+    @url = url
+  end
+
   def base_dir
     self.class.to_s.underscore
   end

@@ -16,10 +16,20 @@ describe EroGetter::Downloader::Base do
   end
 
   describe :instance_methods do
-    subject { TestClass.new }
-    its(:name) { should == 'NijiEro BBS' }
-    its(:url_regex) { should == regex }
-    its(:base_dir) { should == 'test_class' }
-    its(:http_client) { should be_a HTTPClient }
+    subject { @klazz }
+    context :good do
+      before { @klazz = TestClass.new('http://example.net/10101010.html') }
+      its(:name) { should == 'NijiEro BBS' }
+      its(:url_regex) { should == regex }
+      its(:base_dir) { should == 'test_class' }
+      its(:http_client) { should be_a HTTPClient }
+    end
+    context :url_mismatch do
+      it {
+        lambda {
+          TestClass.new('http://example.com/10101010.html')
+        }.should raise_error
+      }
+    end
   end
 end

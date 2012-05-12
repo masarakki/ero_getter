@@ -14,7 +14,12 @@ class EroGetter
     klazz.new(url).run
   end
 
+
   class << self
+    def directory
+      File.join ENV['HOME'], 'ero_getter'
+    end
+
     def url_mapping
       @url_mapping ||= {}
     end

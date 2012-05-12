@@ -12,9 +12,11 @@ class EroGetter::Downloader
     end
 
     def mkdir(path)
-      basedir = File.dirname(path)
-      mkdir(basedir) unless File.exists?(basedir)
-      Dir.mkdir(path)
+      unless File.exists?(path)
+        basedir = File.dirname(path)
+        mkdir(basedir) unless File.exists?(basedir)
+        Dir.mkdir(path)
+      end
     end
 
     def unzip(zip_data)

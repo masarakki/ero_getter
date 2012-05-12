@@ -13,6 +13,14 @@ class EroGetter::Downloader::Base
     self.class.to_s.underscore
   end
 
+  def directory
+    unless @dir
+      @dir = File.join(EroGetter.directory, base_dir, sub_directory)
+      EroGetter::Downloader.mkdir(@dir)
+    end
+    @dir
+  end
+
   def http_client
     @http_client ||= HTTPClient.new
   end
@@ -58,9 +66,7 @@ class EroGetter::Downloader::Base
     def sub_directory(&block)
       define_method(:sub_directory) do
         unless instance_variable_defined?(:@sub_directory)
-          dir = self.instance_eval(&block)
-          EroGetter::Downloader.mkdir(dir)
-          instance_variable_set(:@sub_directory, dir)
+          instance_variable_set(:@sub_directory, self.instance_eval(&block))
         end
         instance_variable_get(:@sub_directory)
       end

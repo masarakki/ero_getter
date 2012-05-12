@@ -1,8 +1,13 @@
 require 'active_support/inflector'
+require 'httpclient'
 
 class EroGetter::Downloader::Base
   def base_dir
     self.class.to_s.underscore
+  end
+
+  def http_client
+    @http_client ||= HTTPClient.new
   end
 
   class << self

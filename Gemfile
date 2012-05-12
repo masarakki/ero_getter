@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'activesupport'
+gem 'httpclient'
 group :development, :test do
   gem 'rspec'
 end

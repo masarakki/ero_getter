@@ -20,5 +20,6 @@ describe EroGetter::Downloader::Base do
     its(:name) { should == 'NijiEro BBS' }
     its(:url_regex) { should == regex }
     its(:base_dir) { should == 'test_class' }
+    its(:http_client) { should be_a HTTPClient }
   end
 end

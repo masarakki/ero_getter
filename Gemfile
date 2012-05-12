@@ -1,11 +1,11 @@
-source 'https://rubygems.org'
-
-# Specify your gem's dependencies in ero_getter.gemspec
-gemspec
+source :rubygems
 
 gem 'activesupport'
 gem 'httpclient'
 gem 'rubyzip'
+
 group :development, :test do
   gem 'rspec'
+  gem 'bundler'
+  gem 'jeweler'
 end

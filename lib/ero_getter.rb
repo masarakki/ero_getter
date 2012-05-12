@@ -1,5 +1,3 @@
-require "ero_getter/version"
-
 class EroGetter
   autoload :Downloader, 'ero_getter/downloader'
 

@@ -30,6 +30,10 @@ class EroGetter::Downloader::Base
     @url
   end
 
+  def direction
+    @direction
+  end
+
   def document
     @document ||= Nokogiri::HTML(open(url).read)
   end

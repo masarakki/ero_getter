@@ -40,6 +40,7 @@ describe EroGetter::Downloader::Base do
       its(:document) { should be_a Nokogiri::HTML::Document }
       its(:title) { should == 'EroGetter Server' }
       its(:url) { should == 'http://example.net/10101010.html' }
+      its(:direction) { should == 0 }
       its(:targets) { should == ['https://github.com/masarakki/ero_getter_server',
           'https://github.com/masarakki/ero_getter_chrome_extension'] }
       its(:sub_directory) { should == 'ero_getter_server/ero_getter_chrome_extension' }

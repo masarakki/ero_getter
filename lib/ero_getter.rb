@@ -10,6 +10,12 @@ class EroGetter
     nil
   end
 
+  def download(url)
+    klazz = detect(url)
+    raise unless klazz
+    klazz.new(url).run
+  end
+
   class << self
     def url_mapping
       @@url_mapping ||= {}

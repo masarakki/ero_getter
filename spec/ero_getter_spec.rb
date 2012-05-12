@@ -19,18 +19,39 @@ describe EroGetter do
   end
 
   describe :instance_methods do
+    let(:url) { 'http://example.com/0101010.html' }
     before do
       @strategy = Class.new
       @regex = regex
       EroGetter.add_mapping(@regex, @strategy)
       @ero_getter = EroGetter.new
     end
+
     describe :detect do
       context :match do
-        it { subject.detect('http://example.com/0101010.html').should == @strategy }
+        it { subject.detect(url).should == @strategy }
       end
       context :mismatch do
-        it { subject.detect('http://example.net/0101010.html').should be_nil }
+        it { subject.detect(url.gsub(/com/, 'net')).should be_nil }
+      end
+    end
+
+    describe :download do
+      context :match do
+        it "detect and run" do
+          @instance = @strategy.new
+          @strategy.should_receive(:new).with(url).and_return(@instance)
+          @instance.should_receive(:run)
+          subject.download(url)
+        end
+      end
+
+      context :mismatch do
+        it {
+          lambda {
+            subject.download(url.gsub(/com/, 'net'))
+          }.should raise_error
+        }
       end
     end
   end

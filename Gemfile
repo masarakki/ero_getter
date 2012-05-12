@@ -5,6 +5,7 @@ gemspec
 
 gem 'activesupport'
 gem 'httpclient'
+gem 'rubyzip'
 group :development, :test do
   gem 'rspec'
 end

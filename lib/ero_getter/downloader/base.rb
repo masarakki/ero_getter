@@ -1,5 +1,6 @@
 require 'active_support/inflector'
 require 'httpclient'
+require 'nokogiri'
 
 class EroGetter::Downloader::Base
   def initialize(url)
@@ -28,5 +29,17 @@ class EroGetter::Downloader::Base
       end
       EroGetter.add_mapping(regex, self)
     end
+  end
+
+  def url
+    @url
+  end
+
+  def document
+    @document ||= Nokogiri::HTML(open(url).read)
+  end
+
+  def title
+    @title ||= document.title
   end
 end

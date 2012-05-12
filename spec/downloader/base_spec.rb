@@ -19,11 +19,17 @@ describe EroGetter::Downloader::Base do
   describe :instance_methods do
     subject { @dl }
     context :good do
-      before { @dl = @klazz.new('http://example.net/10101010.html') }
+      before do
+        @dl = @klazz.new('http://example.net/10101010.html')
+        @dl.stub(:open).and_return(File.open(sample_path('sample.html')))
+      end
       its(:name) { should == 'NijiEro BBS' }
       its(:url_regex) { should == regex }
       its(:base_dir) { should == 'test_class' }
       its(:http_client) { should be_a HTTPClient }
+      its(:document) { should be_a Nokogiri::HTML::Document }
+      its(:title) { should == 'EroGetter Server' }
+      its(:url) { should == 'http://example.net/10101010.html' }
     end
     context :url_mismatch do
       it {

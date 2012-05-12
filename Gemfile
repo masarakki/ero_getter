@@ -3,6 +3,7 @@ source :rubygems
 gem 'activesupport'
 gem 'httpclient'
 gem 'rubyzip'
+gem 'nokogiri'
 
 platform :jruby do
   gem 'jruby-openssl'

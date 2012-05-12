@@ -54,6 +54,17 @@ class EroGetter::Downloader::Base
         instance_variable_get(:@targets)
       end
     end
+
+    def sub_directory(&block)
+      define_method(:sub_directory) do
+        unless instance_variable_defined?(:@sub_directory)
+          dir = self.instance_eval(&block)
+          EroGetter::Downloader.mkdir(dir)
+          instance_variable_set(:@sub_directory, dir)
+        end
+        instance_variable_get(:@sub_directory)
+      end
+    end
   end
 
 end

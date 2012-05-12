@@ -1,6 +1,7 @@
 require 'active_support/inflector'
 require 'httpclient'
 require 'nokogiri'
+require 'open-uri'
 
 class EroGetter::Downloader::Base
   def initialize(url, direction = 0)

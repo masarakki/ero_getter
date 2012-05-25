@@ -5,7 +5,7 @@ gem 'httpclient'
 gem 'rubyzip'
 gem 'nokogiri'
 
-platform :jruby do
+platforms :jruby do
   gem 'jruby-openssl'
 end
 

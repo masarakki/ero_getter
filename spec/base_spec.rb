@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe EroGetter::Downloader::Base do
+describe EroGetter::Base do
   let(:regex) { %r{http://example.net/\d+.html} }
   before do
     _regex = regex
-    @klazz = Class.new(EroGetter::Downloader::Base) do
+    @klazz = Class.new(EroGetter::Base) do
       name 'NijiEro BBS'
       url _regex
 

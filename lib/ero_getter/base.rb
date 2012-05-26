@@ -2,8 +2,9 @@ require 'active_support/inflector'
 require 'httpclient'
 require 'nokogiri'
 require 'open-uri'
+require 'zipruby'
 
-class EroGetter::Downloader::Base
+class EroGetter::Base
   def initialize(url, direction = 0)
     raise unless url.match url_regex
     @url = url
@@ -40,6 +41,19 @@ class EroGetter::Downloader::Base
 
   def title
     @title ||= document.title
+  end
+
+  def unzip(zip_data)
+    result = []
+    Zip::Archive.open_buffer(zip_data) do |archive|
+      archive.num_files.times do |i|
+        entry_name = archive.get_name(i)
+        archive.fopen(entry_name) do |f|
+          result << [f.name, f.read]
+        end
+      end
+    end
+    result
   end
 
   class << self

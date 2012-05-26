@@ -5,7 +5,7 @@ require 'open-uri'
 require 'zipruby'
 
 class EroGetter::Base
-  def initialize(url, direction = 0)
+  def initialize(url, direction = :none)
     raise unless url.match url_regex
     @url = url
     @direction = direction
@@ -41,6 +41,37 @@ class EroGetter::Base
 
   def title
     @title ||= document.title
+  end
+
+  def run
+    targets.each do |target_url|
+      if target_url =~ /.*\.zip$/
+        save_zip(target_url)
+      else
+        save_image(target_url)
+      end
+    end
+    self.class.new(self.prev, :prev).run if run_prev?
+    self.class.new(self.next, :next).run if run_next?
+  end
+
+  def get_target(target)
+    response = http_client.get(target, :header => {:referer => url}, :follow_redirect => true)
+    raise unless response.status == 200
+    response
+  end
+
+  def save_image(target_url)
+    filename = File.basename(target_url)
+    response = get_target(target_url)
+    File.open(File.join(directory, filename), "wb") {|f| f.write response.body }
+  end
+
+  def save_zip(target_url)
+    response = get_target(target_url)
+    unzip(response.body).each do |filename, data|
+      File.open(File.join(dir, filename), "wb") {|f| f.write data }
+    end
   end
 
   def unzip(zip_data)
@@ -90,6 +121,27 @@ class EroGetter::Base
         instance_variable_get(:@sub_directory)
       end
     end
+
+    def after(xpath, &block)
+      [:prev, :next].each_with_index do |method_name, index|
+        var_name = "@#{method_name}".to_sym
+        define_method(method_name) do
+          unless instance_variable_defined?(var_name)
+            tag = document.xpath(xpath[index]).first
+            instance_variable_set(var_name, instance_exec(tag, &block) ? tag[:href] : nil)
+          end
+          instance_variable_get(var_name)
+        end
+      end
+    end
   end
 
+  private
+  def run_next?
+    direction != :prev && respond_to?(:next) && self.next != nil
+  end
+
+  def run_prev?
+    direction != :next && respond_to?(:prev) && self.prev != nil
+  end
 end

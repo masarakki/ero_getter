@@ -30,7 +30,7 @@ describe EroGetter::Base do
       before do
         @dl = @klazz.new('http://example.net/10101010.html')
         @dl.stub(:open).and_return(File.open(sample_path('sample.html')))
-        EroGetter::Downloader.stub(:mkdir).and_return(true)
+        EroGetter.stub(:mkdir).and_return(true)
         EroGetter.stub('directory').and_return('/tmp')
       end
       its(:name) { should == 'NijiEro BBS' }

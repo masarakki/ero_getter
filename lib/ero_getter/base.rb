@@ -18,7 +18,7 @@ class EroGetter::Base
   def directory
     unless @dir
       @dir = File.join(EroGetter.directory, base_dir, sub_directory)
-      EroGetter::Downloader.mkdir(@dir)
+      EroGetter.mkdir(@dir)
     end
     @dir
   end

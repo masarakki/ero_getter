@@ -14,4 +14,5 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'bundler'
   gem 'jeweler'
+  gem 'fakeweb'
 end

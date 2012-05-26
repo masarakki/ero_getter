@@ -2,7 +2,7 @@ source :rubygems
 
 gem 'activesupport'
 gem 'httpclient'
-gem 'rubyzip'
+gem 'zipruby'
 gem 'nokogiri'
 
 platforms :jruby do

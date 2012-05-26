@@ -11,6 +11,7 @@ end
 
 group :development, :test do
   gem 'rspec'
+  gem 'guard-rspec'
   gem 'bundler'
   gem 'jeweler'
 end

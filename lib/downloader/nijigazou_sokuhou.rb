@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'nokogiri'
-
 class NijigazouSokuhou < EroGetter::Base
 
   name '二次画像速報'

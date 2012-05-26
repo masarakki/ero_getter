@@ -44,3 +44,11 @@ class EroGetter
     end
   end
 end
+
+Dir.glob(File.expand_path(File.dirname(__FILE__) + '/downloader/*.rb')) do |file|
+  begin
+    require file
+  rescue
+    puts "Load error in #{file}"
+  end
+end

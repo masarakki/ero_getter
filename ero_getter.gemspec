@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/masarakki/ero_getter"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.23"
   s.summary = "ero getter"
 
   if s.respond_to? :specification_version then
@@ -58,7 +58,6 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<httpclient>, [">= 0"])
       s.add_runtime_dependency(%q<zipruby>, [">= 0"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
-      s.add_runtime_dependency(%q<jruby-openssl>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<guard-rspec>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
@@ -69,7 +68,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<httpclient>, [">= 0"])
       s.add_dependency(%q<zipruby>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
-      s.add_dependency(%q<jruby-openssl>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<guard-rspec>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
@@ -81,7 +79,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<httpclient>, [">= 0"])
     s.add_dependency(%q<zipruby>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
-    s.add_dependency(%q<jruby-openssl>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<guard-rspec>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])

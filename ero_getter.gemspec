@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.0.0"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2012-05-26"
+  s.date = "2012-05-27"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -29,15 +29,18 @@ Gem::Specification.new do |s|
     "VERSION",
     "ero_getter.gemspec",
     "lib/downloader/nijigazou_sokuhou.rb",
+    "lib/downloader/pm_style.rb",
     "lib/ero_getter.rb",
     "lib/ero_getter/base.rb",
     "lib/ero_getter/utils.rb",
     "spec/downloader/nijigazou_sokuhou_spec.rb",
+    "spec/downloader/pm_style_spec.rb",
     "spec/ero_getter/base_spec.rb",
     "spec/ero_getter_spec.rb",
     "spec/samples/nijigazou_sokuhou/first.html",
     "spec/samples/nijigazou_sokuhou/last.html",
     "spec/samples/nijigazou_sokuhou/middle.html",
+    "spec/samples/pm_style/test.html",
     "spec/samples/sample.html",
     "spec/spec_helper.rb"
   ]

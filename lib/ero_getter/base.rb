@@ -122,13 +122,14 @@ class EroGetter::Base
       end
     end
 
-    def after(xpath, &block)
+    def connection(css, &block)
       [:prev, :next].each_with_index do |method_name, index|
         var_name = "@#{method_name}".to_sym
         define_method(method_name) do
           unless instance_variable_defined?(var_name)
-            tag = document.xpath(xpath[index]).first
-            instance_variable_set(var_name, instance_exec(tag, &block) ? tag[:href] : nil)
+            tag = document.css(css[index]).first
+            instance_variable_set(var_name,
+              tag && instance_exec(tag, &block) ? tag[:href] : nil)
           end
           instance_variable_get(var_name)
         end

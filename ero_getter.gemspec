@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.1.2"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
     "spec/ero_getter/base_spec.rb",
     "spec/ero_getter_spec.rb",
     "spec/samples/nijigazou_sokuhou/first.html",
+    "spec/samples/nijigazou_sokuhou/global_last.html",
     "spec/samples/nijigazou_sokuhou/last.html",
     "spec/samples/nijigazou_sokuhou/middle.html",
     "spec/samples/pm_style/test.html",

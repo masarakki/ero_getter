@@ -48,6 +48,7 @@ describe EroGetter::Base do
             'https://github.com/masarakki/ero_getter_chrome_extension'] }
         its(:sub_directory) { should == 'ero_getter_server/ero_getter_chrome_extension' }
         its(:directory) { should == '/tmp/test_class/ero_getter_server/ero_getter_chrome_extension' }
+        it { subject.send(:filename, "hogehoge.jpg", 1).should == 'hogehoge.jpg' }
 
         describe :after_run do
           context :not_set_after do
@@ -151,5 +152,18 @@ describe EroGetter::Base do
       its(:prev) { should == 'unko' }
       its(:next) { should == 'unko' }
     end
+  end
+  context :with_filename do
+    before do
+      _regex = regex
+      klazz = Class.new(EroGetter::Base) do
+        url _regex
+        filename do |attr|
+          "%04d%s" % [attr[:index], attr[:ext]]
+        end
+      end
+      @dl = klazz.new(url)
+    end
+    it { @dl.send(:filename, 'hogehoge.jpg', 0).should == '0000.jpg' }
   end
 end

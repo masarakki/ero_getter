@@ -44,11 +44,11 @@ class EroGetter::Base
   end
 
   def run
-    targets.each do |target_url|
+    targets.each_with_index do |target_url, index|
       if target_url =~ /.*\.zip$/
-        save_zip(target_url)
+        save_zip(target_url, index)
       else
-        save_image(target_url)
+        save_image(target_url, index)
       end
     end
     self.class.new(self.prev, :prev).run if run_prev?
@@ -61,16 +61,16 @@ class EroGetter::Base
     response
   end
 
-  def save_image(target_url)
-    filename = File.basename(target_url)
+  def save_image(target_url, index)
+    _filename = filename(File.basename(target_url), index)
     response = get_target(target_url)
-    File.open(File.join(directory, filename), "wb") {|f| f.write response.body }
+    File.open(File.join(directory, _filename), "wb") {|f| f.write response.body }
   end
 
-  def save_zip(target_url)
+  def save_zip(target_url, index)
     response = get_target(target_url)
-    unzip(response.body).each do |filename, data|
-      File.open(File.join(directory, filename), "wb") {|f| f.write data }
+    unzip(response.body).each do |_filename, data|
+      File.open(File.join(directory, _filename), "wb") {|f| f.write data }
     end
   end
 
@@ -135,6 +135,12 @@ class EroGetter::Base
         end
       end
     end
+
+    def filename(&block)
+      define_method(:_filename) do |attr|
+        yield(attr)
+      end
+    end
   end
 
   private
@@ -144,5 +150,13 @@ class EroGetter::Base
 
   def run_prev?
     direction != :next && respond_to?(:prev) && self.prev != nil
+  end
+
+  def filename(basename, index)
+    if respond_to?(:_filename)
+      _filename(index: index, basename: basename, ext: File.extname(basename))
+    else
+      basename
+    end
   end
 end

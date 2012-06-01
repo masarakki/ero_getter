@@ -70,7 +70,7 @@ class EroGetter::Base
   def save_zip(target_url)
     response = get_target(target_url)
     unzip(response.body).each do |filename, data|
-      File.open(File.join(dir, filename), "wb") {|f| f.write data }
+      File.open(File.join(directory, filename), "wb") {|f| f.write data }
     end
   end
 

@@ -15,7 +15,7 @@ class NijigazouSokuhou < EroGetter::Base
     File.join(chara, d)
   end
 
-  after ["//a[@rel='prev']", "//a[@rel='next']"] do |path|
+  connection ['a[rel=prev]', 'a[rel=next]'] do |path|
     path.text.match(Regexp.escape(title_part))
   end
 

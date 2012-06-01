@@ -43,5 +43,13 @@ describe NijigazouSokuhou do
       its(:next) { should be_nil }
       its(:prev) { should == url }
     end
+
+    context :global_last do
+      before do
+        fake(:get, url, 'nijigazou_sokuhou/global_last.html')
+      end
+
+      its(:next) { should be_nil }
+    end
   end
 end

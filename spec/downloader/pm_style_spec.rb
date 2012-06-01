@@ -14,6 +14,6 @@ describe PmStyle do
       'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/120526/pm_chu2800b.zip',
       'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/120526/pm_chu2800c.zip']
   }
-  its(:sub_directory) { should == 'chu2800' }
+  its(:sub_directory) { should == 'pm_chu_002800' }
 end
 

@@ -5,6 +5,7 @@ class PmStyle < EroGetter::Base
     path.parent[:href] if path[:alt] =~ /file\d+/
   end
   sub_directory do
-    targets.first.match(/pm_(.+)[a|b|c].zip$/)[1]
+    matches = targets.first.match(/pm_(.+?)(\d+)[a|b|c].zip$/)
+    "pm_#{matches[1]}_#{"%06d" % matches[2]}"
   end
 end

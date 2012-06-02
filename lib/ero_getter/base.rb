@@ -154,7 +154,7 @@ class EroGetter::Base
 
   def filename(basename, index)
     if respond_to?(:_filename)
-      _filename(index: index, basename: basename, ext: File.extname(basename))
+      _filename(:index => index, :basename => basename, :ext => File.extname(basename))
     else
       basename
     end

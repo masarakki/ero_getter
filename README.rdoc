@@ -1,5 +1,32 @@
 = ero_getter
 
+ero_getter is downloader for ero gazou.
+
+== usage
+ EroGetter.download(url)
+
+automaticaly download in $HOME/ero_getter/#{site}/#{sub_directory}/
+
+== support other sites
+
+add lib/downloader/#{site_name}.rb
+
+ class #{SiteName} < EroGetter::Base
+    name 'Site Name'
+    url %r{http://example.com/archives/(\d+).html}
+    target "a > img" do |path|                 # use css selector
+      path.parent[:href] =~ /jpe?g|gif|png/    # filter like Array.select
+    end
+    sub_directory do
+      url.match(/(\d+)\.html/)[1]
+    end
+    filename {|attr| "%04d%s" % [attr[:index], attr[:ext]] }  # if you want sequencial filename
+ end
+
+then pull request!
+
+== see also
+http://github.com/masarakki/ero_getter_server
 
 == Contributing to ero_getter
 

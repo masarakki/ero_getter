@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.2.0"
+  s.version = "1.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2012-06-01"
+  s.date = "2012-06-02"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -28,21 +28,27 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "ero_getter.gemspec",
+    "lib/downloader/gazou_sokuhou.rb",
     "lib/downloader/nijigazou_sokuhou.rb",
     "lib/downloader/pm_style.rb",
+    "lib/downloader/wakuteka_sokuhou.rb",
     "lib/ero_getter.rb",
     "lib/ero_getter/base.rb",
     "lib/ero_getter/utils.rb",
+    "spec/downloader/gazou_sokuhou_spec.rb",
     "spec/downloader/nijigazou_sokuhou_spec.rb",
     "spec/downloader/pm_style_spec.rb",
+    "spec/downloader/wakuteka_sokuhou_spec.rb",
     "spec/ero_getter/base_spec.rb",
     "spec/ero_getter_spec.rb",
+    "spec/samples/gazou_sokuhou/sample.html",
     "spec/samples/nijigazou_sokuhou/first.html",
     "spec/samples/nijigazou_sokuhou/global_last.html",
     "spec/samples/nijigazou_sokuhou/last.html",
     "spec/samples/nijigazou_sokuhou/middle.html",
     "spec/samples/pm_style/test.html",
     "spec/samples/sample.html",
+    "spec/samples/wakuteka_sokuhou/sample.html",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/masarakki/ero_getter"

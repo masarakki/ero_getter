@@ -1,13 +1,16 @@
-= ero_getter
+EroGetter
+=========
 
 ero_getter is downloader for ero gazou.
 
-== usage
+usage
+-----
  EroGetter.download(url)
 
 automaticaly download in $HOME/ero_getter/#{site}/#{sub_directory}/
 
-== support other sites
+support other sites
+-------------------
 
 add lib/downloader/#{site_name}.rb
 
@@ -38,15 +41,17 @@ add spec/downloader#{site_name}_spec.rb
      fake(:get, url, '#{site_name}/sample.html')
    end
    its(:sub_directory) { should == '01010101' }
-   its("targets.count") { should == #{numbers of image} } 
+   its("targets.count") { should == #{numbers of image} }
  end
 
 then pull request!
 
-== see also
+see also
+--------
 http://github.com/masarakki/ero_getter_server
 
-== Contributing to ero_getter
+Contributing to ero_getter
+--------------------------
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -56,7 +61,8 @@ http://github.com/masarakki/ero_getter_server
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+Copyright
+---------
 
 Copyright (c) 2012 masarakki. See LICENSE.txt for
 further details.

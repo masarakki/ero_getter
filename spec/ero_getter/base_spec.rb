@@ -8,7 +8,7 @@ describe EroGetter::Base do
   context :without_connection do
     before do
       _regex = regex
-      fake(:get, regex, 'sample.html')
+      fake(:get, url, 'sample.html')
       @klazz = Class.new(EroGetter::Base) do
         name 'NijiEro BBS'
         url _regex
@@ -128,6 +128,7 @@ describe EroGetter::Base do
         end
       end
       @dl = klazz.new(url)
+      @dl.stub(:document).and_return(stub)
     end
 
     context :css_not_found do

@@ -10,5 +10,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'bundler'
   gem 'jeweler'
-  gem 'fakeweb'
+end
+
+group :test do
+  gem 'webmock'
 end

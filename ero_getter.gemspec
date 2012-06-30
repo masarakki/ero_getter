@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.3.3"
+  s.version = "1.3.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "ero_getter.gemspec",
+    "lib/downloader/elog_bakufu.rb",
     "lib/downloader/gazou_sokuhou.rb",
     "lib/downloader/mink_channel.rb",
     "lib/downloader/nijigazou_sokuhou.rb",
@@ -36,6 +37,7 @@ Gem::Specification.new do |s|
     "lib/ero_getter.rb",
     "lib/ero_getter/base.rb",
     "lib/ero_getter/utils.rb",
+    "spec/downloader/elog_bakufu_spec.rb",
     "spec/downloader/gazou_sokuhou_spec.rb",
     "spec/downloader/mink_channel_spec.rb",
     "spec/downloader/nijigazou_sokuhou_spec.rb",
@@ -43,6 +45,7 @@ Gem::Specification.new do |s|
     "spec/downloader/wakuteka_sokuhou_spec.rb",
     "spec/ero_getter/base_spec.rb",
     "spec/ero_getter_spec.rb",
+    "spec/samples/elog_bakufu/sample.html",
     "spec/samples/gazou_sokuhou/sample.html",
     "spec/samples/mink_channel/sample.html",
     "spec/samples/nijigazou_sokuhou/first.html",

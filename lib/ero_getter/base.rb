@@ -92,6 +92,9 @@ class EroGetter::Base
       define_method(:name) do
         site_name
       end
+      define_singleton_method(:site_name) do
+        site_name
+      end
     end
 
     def url(regex)

@@ -23,6 +23,10 @@ describe EroGetter::Base do
       end
       @klazz.stub(:to_s).and_return('TestClass')
     end
+    describe :class_methods do
+      subject { @klazz }
+      its(:site_name) { should == 'NijiEro BBS' }
+    end
 
     describe "assign url_mapping" do
       it { EroGetter.url_mapping.should have_key regex }

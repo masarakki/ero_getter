@@ -2,7 +2,7 @@
 class ElogBakufu < EroGetter::Base
 
   name 'エログ幕府'
-  url %r{http://blog.livedoor.jp/samplems-bakufu/archives/51351906.html}
+  url %r{http://blog.livedoor.jp/samplems-bakufu/archives/\d+.html}
 
   target ".article-body-inner img" do |path|
     if path.parent.name == "a" && path.parent[:href] =~ /jpe?g|gif|png$/

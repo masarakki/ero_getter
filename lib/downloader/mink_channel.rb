@@ -4,7 +4,7 @@ class MinkChannel < EroGetter::Base
   name 'みんくちゃんねる'
   url %r{http://minkch.com/archives/(\d+).html}
 
-  target ".gold > a > img" do |path|
+  target ".article-body-inner img" do |path|
     path.parent[:href] if path.parent[:href] =~ /jpe?g|gif|png/
   end
 

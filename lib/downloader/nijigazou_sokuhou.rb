@@ -2,7 +2,7 @@
 class NijigazouSokuhou < EroGetter::Base
 
   name '二次画像速報'
-  url %r{http://nijigazo.2chblog.jp/archives/\d+.html}
+  url %r{http://blog.livedoor.jp/nijigazo/archives/\d+.html}
 
   target ".article-body-more > a > img" do |path|
     path.parent[:href] if path.parent[:href] =~ /jpe?g|png|gif$/

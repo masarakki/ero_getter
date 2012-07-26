@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe NijigazouSokuhou do
-  let(:url) { 'http://blog.livedoor.jp/nijigazo/archives/52249806.html' }
+  let(:url) { 'http://nijigazo.2chblog.jp/archives/52249806.html' }
   subject { @dl = NijigazouSokuhou.new(url) }
 
   before do
@@ -31,8 +31,8 @@ describe NijigazouSokuhou do
       its("targets.count") { should == 50 }
       its("targets.first") { should == "http://img03.nijigazo.com/2012/05/11/azusa/0511azusa_0051.jpg" }
       its(:sub_directory) { should == 'azusa/20120511' }
-      its(:prev) { should == 'http://blog.livedoor.jp/nijigazo/archives/52249804.html' }
-      its(:next) { should == 'http://blog.livedoor.jp/nijigazo/archives/52249808.html' }
+      its(:prev) { should == 'http://nijigazo.2chblog.jp/archives/52249804.html' }
+      its(:next) { should == 'http://nijigazo.2chblog.jp/archives/52249808.html' }
     end
 
     context :last do

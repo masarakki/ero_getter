@@ -37,7 +37,7 @@ describe EroGetter::Base do
       context :good do
         before do
           @dl = @klazz.new(url)
-          EroGetter.stub(:mkdir).and_return(true)
+          FileUtils.stub(:mkdir_p).and_return(true)
           EroGetter.stub('directory').and_return('/tmp')
         end
         its(:name) { should == 'NijiEro BBS' }

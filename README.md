@@ -36,7 +36,7 @@ add spec/downloader#{site_name}_spec.rb
       subject { @dl }
       let(:url) { 'http://example.com/archives/01010101.html' }
       before do
-        FileUtils.stub(::mkdir_p)
+        FileUtils.stub(:mkdir_p)
         @dl = #{SiteName}.new(url)
         fake(:get, url, '#{site_name}/sample.html')
       end

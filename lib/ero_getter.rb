@@ -1,6 +1,5 @@
 class EroGetter
   autoload :Base, 'ero_getter/base'
-  autoload :Utils, 'ero_getter/utils'
 
   def detect(url)
     self.class.url_mapping.each_pair do |regex, klazz|
@@ -21,14 +20,6 @@ class EroGetter
       path = File.join ENV['HOME'], 'ero_getter'
       puts path unless Dir.exists?(path)
       path
-    end
-
-    def mkdir(path)
-      unless File.exists?(path)
-        basedir = File.dirname(path)
-        mkdir(basedir) unless File.exists?(basedir)
-        Dir.mkdir(path)
-      end
     end
 
     def url_mapping

@@ -5,7 +5,7 @@ describe MinkChannel do
   let(:url) { "http://minkch.com/archives/51930285.html" }
   subject { @dl }
   before do
-    EroGetter.stub(:mkdir)
+    FileUtils.stub(:mkdir_p)
     @dl = MinkChannel.new(url)
     fake(:get, url, 'mink_channel/sample.html')
   end

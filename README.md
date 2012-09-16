@@ -13,7 +13,7 @@ support other sites
 -------------------
 
 add lib/downloader/#{site_name}.rb
-  
+
     class #{SiteName} < EroGetter::Base
        name 'Site Name'
        url %r{http://example.com/archives/(\d+).html}
@@ -36,7 +36,7 @@ add spec/downloader#{site_name}_spec.rb
       subject { @dl }
       let(:url) { 'http://example.com/archives/01010101.html' }
       before do
-        EroGetter.stub(:mkdir)
+        FileUtils.stub(::mkdir_p)
         @dl = #{SiteName}.new(url)
         fake(:get, url, '#{site_name}/sample.html')
       end

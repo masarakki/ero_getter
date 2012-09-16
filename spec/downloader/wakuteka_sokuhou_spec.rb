@@ -5,7 +5,7 @@ describe WakutekaSokuhou do
   let(:url) { 'http://blog.livedoor.jp/wakusoku/archives/1461175.html' }
   subject { @dl }
   before do
-    EroGetter.stub(:mkdir)
+    FileUtils.stub(:mkdir_p)
     @dl = WakutekaSokuhou.new(url)
     fake(:get, url, 'wakuteka_sokuhou/sample.html')
   end

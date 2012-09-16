@@ -1,5 +1,6 @@
 class EroGetter
   autoload :Base, 'ero_getter/base'
+  autoload :Livedoor, 'ero_getter/livedoor'
 
   def detect(url)
     self.class.url_mapping.each_pair do |regex, klazz|

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.4.0"
+  s.version = "1.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2012-09-16"
+  s.date = "2012-09-27"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
     "lib/downloader/gazou_sokuhou.rb",
     "lib/downloader/mink_channel.rb",
     "lib/downloader/nijigazou_sokuhou.rb",
+    "lib/downloader/okki_channel.rb",
     "lib/downloader/pm_style.rb",
     "lib/downloader/shimo_soku.rb",
     "lib/downloader/wakuteka_sokuhou.rb",
@@ -42,6 +43,7 @@ Gem::Specification.new do |s|
     "spec/downloader/gazou_sokuhou_spec.rb",
     "spec/downloader/mink_channel_spec.rb",
     "spec/downloader/nijigazou_sokuhou_spec.rb",
+    "spec/downloader/okki_channel_spec.rb",
     "spec/downloader/pm_style_spec.rb",
     "spec/downloader/shimo_soku_spec.rb",
     "spec/downloader/wakuteka_sokuhou_spec.rb",
@@ -55,6 +57,7 @@ Gem::Specification.new do |s|
     "spec/samples/nijigazou_sokuhou/global_last.html",
     "spec/samples/nijigazou_sokuhou/last.html",
     "spec/samples/nijigazou_sokuhou/middle.html",
+    "spec/samples/okki_channel/sample.html",
     "spec/samples/pm_style/test.html",
     "spec/samples/sample.html",
     "spec/samples/shimo_soku/sample.html",

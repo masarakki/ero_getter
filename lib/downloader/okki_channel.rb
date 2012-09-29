@@ -12,4 +12,5 @@ class OkkiChannel < EroGetter::Base
     url.match(/(\d+).html/)[1]
   end
 
+  filename { |attr| "%04d%s" % [attr[:index], attr[:ext]] }
 end

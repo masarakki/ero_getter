@@ -3,6 +3,7 @@ require 'httpclient'
 require 'nokogiri'
 require 'open-uri'
 require 'zipruby'
+require 'nkf'
 
 class EroGetter::Base
   def initialize(url, direction = :none)
@@ -35,8 +36,12 @@ class EroGetter::Base
     @direction
   end
 
+  def html
+    @html ||= open(url).read
+  end
+
   def document
-    @document ||= Nokogiri::HTML(open(url).read)
+    @document ||= Nokogiri::HTML(html, nil, NKF.guess(html).to_s)
   end
 
   def title

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.6.0"
+  s.version = "1.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2012-10-05"
+  s.date = "2013-02-07"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
     "lib/downloader/ona_neet.rb",
     "lib/downloader/pm_style.rb",
     "lib/downloader/shimo_soku.rb",
+    "lib/downloader/sukumizu_shiryou.rb",
     "lib/downloader/wakuteka_sokuhou.rb",
     "lib/ero_getter.rb",
     "lib/ero_getter/base.rb",
@@ -48,6 +49,7 @@ Gem::Specification.new do |s|
     "spec/downloader/ona_neet_spec.rb",
     "spec/downloader/pm_style_spec.rb",
     "spec/downloader/shimo_soku_spec.rb",
+    "spec/downloader/sukumizu_shiryou_spec.rb",
     "spec/downloader/wakuteka_sokuhou_spec.rb",
     "spec/ero_getter/base_spec.rb",
     "spec/ero_getter/livedoor_spec.rb",
@@ -64,6 +66,7 @@ Gem::Specification.new do |s|
     "spec/samples/pm_style/test.html",
     "spec/samples/sample.html",
     "spec/samples/shimo_soku/sample.html",
+    "spec/samples/sukumizu_shiryou/sample.html",
     "spec/samples/wakuteka_sokuhou/sample.html",
     "spec/spec_helper.rb"
   ]

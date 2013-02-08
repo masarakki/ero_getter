@@ -12,6 +12,8 @@ group :development, :test do
   gem 'guard-spork'
   gem 'bundler'
   gem 'jeweler'
+  gem 'pry'
+  gem 'pry-doc'
 end
 
 group :test do

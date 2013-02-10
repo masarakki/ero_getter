@@ -2,7 +2,7 @@ class PmStyle < EroGetter::Base
   name 'PM Style'
   url %r{http://mxserver08.net/new_pm/main/movie\d+.html}
   target "a > img" do |path|
-    path.parent[:href] if path[:alt] =~ /file\d+/
+    path.parent[:href] if path.parent[:href] =~ /file=.+\.zip$/
   end
   sub_directory do
     matches = targets.first.match(/pm_(.+?)(\d+)[a|b|c].zip$/)

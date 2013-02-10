@@ -10,10 +10,10 @@ describe PmStyle do
   end
   its(:base_dir) { should == 'pm_style' }
   its(:targets) { should == [
-      'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/120526/pm_chu2800a.zip',
-      'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/120526/pm_chu2800b.zip',
-      'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/120526/pm_chu2800c.zip']
+      'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/130206/pm_chu3056a.zip',
+      'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/130206/pm_chu3056c.zip',
+      'http://hpcgi2.nifty.com/r-seven/page.cgi?file=copy2/pm/130206/pm_chu3056b.zip']
   }
-  its(:sub_directory) { should == 'pm_chu_002800' }
+  its(:sub_directory) { should == 'pm_chu_003056' }
 end
 

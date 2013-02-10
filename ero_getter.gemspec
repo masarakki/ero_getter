@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.6.1"
+  s.version = "1.6.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2013-02-07"
+  s.date = "2013-02-10"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -73,7 +73,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/masarakki/ero_getter"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "ero getter"
 
   if s.respond_to? :specification_version then
@@ -90,6 +90,8 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<guard-spork>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<pry>, [">= 0"])
+      s.add_development_dependency(%q<pry-doc>, [">= 0"])
     else
       s.add_dependency(%q<activesupport>, [">= 0"])
       s.add_dependency(%q<httpclient>, [">= 0"])
@@ -101,6 +103,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<guard-spork>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<pry>, [">= 0"])
+      s.add_dependency(%q<pry-doc>, [">= 0"])
     end
   else
     s.add_dependency(%q<activesupport>, [">= 0"])
@@ -113,6 +117,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<guard-spork>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<pry>, [">= 0"])
+    s.add_dependency(%q<pry-doc>, [">= 0"])
   end
 end
 

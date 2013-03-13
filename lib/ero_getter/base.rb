@@ -60,9 +60,13 @@ class EroGetter::Base
     self.class.new(self.next, :next).run if run_next?
   end
 
-  def get_target(target)
+  def get_target(target, count = 0)
     response = http_client.get(target, :header => {:referer => url}, :follow_redirect => true)
-    raise unless response.status == 200
+    unless response.status == 200
+      raise target unless count < 3
+      sleep 2
+      return get_target target, count + 1
+    end
     response
   end
 

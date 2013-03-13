@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.6.2"
+  s.version = "1.6.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2013-02-10"
+  s.date = "2013-03-13"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
-    ".rvmrc",
     ".travis.yml",
     "Gemfile",
     "Guardfile",

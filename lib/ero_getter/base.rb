@@ -45,7 +45,7 @@ class EroGetter::Base
   end
 
   def title
-    @title ||= document.title
+    @title ||= document.title.strip
   end
 
   def run

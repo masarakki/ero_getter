@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe ElogBakufu do
-  let(:url) { 'http://bakufu.jp/archives/8124' }
+  let(:url) { 'http://bakufu.jp/archives/7955' }
   subject { @dl }
 
   before do
@@ -11,8 +11,8 @@ describe ElogBakufu do
     fake(:get, url, 'elog_bakufu/sample.html')
   end
   its(:name) { should == 'エログ幕府' }
-  its(:title) { should == 'いいともより木下優樹菜の子持ち生乳チラ | お宝エログ幕府' }
+  its(:title) { should == '見えそうで見えないのが最高にいい生ＪＫの画像 part8 | お宝エログ幕府' }
   its(:base_dir) { should == 'elog_bakufu' }
-  its(:sub_directory) { should == '8124' }
-  its("targets.count") { should == 31 }
+  its(:sub_directory) { should == '7955' }
+  its("targets.count") { should == 40 }
 end

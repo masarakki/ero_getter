@@ -2,14 +2,14 @@
 class MinkChannel < EroGetter::Base
 
   name 'みんくちゃんねる'
-  url %r{http://minkch.com/archives/(\d+).html}
+  url %r{http://minkchan.com/blog-entry-(\d+).html}
 
-  target ".article-body-inner img" do |path|
-    path.parent[:href] if path.parent[:href] =~ /jpe?g|gif|png/
+  target "img.pict" do |path|
+    path.parent[:href] if path.parent.name == "a" && path.parent[:href] =~ /jpe?g|gif|png$/
   end
 
   sub_directory do
-    url.match(/(\d+)\.html/)[1]
+    '2-' + url.match(/(\d+)\.html/)[1]
   end
 
   filename {|attr| "%04d%s" % [attr[:index], attr[:ext]] }

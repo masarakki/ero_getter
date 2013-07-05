@@ -2,14 +2,14 @@
 require 'spec_helper'
 
 describe MinkChannel do
-  let(:url) { "http://minkch.com/archives/51930285.html" }
+  let(:url) { "http://minkchan.com/blog-entry-3916.html" }
   subject { @dl }
   before do
     FileUtils.stub(:mkdir_p)
     @dl = MinkChannel.new(url)
     fake(:get, url, 'mink_channel/sample.html')
   end
-  its(:title) { should == '顔出しＮＧの現役女子大生グラドルが手ブラでおっぱい隠して話題に - みんくちゃんねる' }
-  its(:sub_directory) { should == '51930285' }
-  its('targets.count') { should == 10 }
+  its(:title) { should == 'マック店内で清純な制服JKの行儀悪いむっちり太もも晒し撮りうｐ - みんくちゃんねる' }
+  its(:sub_directory) { should == '2-3916' }
+  its('targets.count') { should == 15 }
 end

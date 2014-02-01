@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ero_getter"
-  s.version = "1.8.0"
+  s.version = "1.9.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2013-07-05"
+  s.date = "2014-02-01"
   s.description = "ero getter"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/downloader/elog_bakufu.rb",
     "lib/downloader/gazou_sokuhou.rb",
     "lib/downloader/mink_channel.rb",
+    "lib/downloader/nijiero_gazou.rb",
     "lib/downloader/nijigazou_sokuhou.rb",
     "lib/downloader/okki_channel.rb",
     "lib/downloader/ona_neet.rb",
@@ -43,6 +44,7 @@ Gem::Specification.new do |s|
     "spec/downloader/elog_bakufu_spec.rb",
     "spec/downloader/gazou_sokuhou_spec.rb",
     "spec/downloader/mink_channel_spec.rb",
+    "spec/downloader/nijiero_gazou_spec.rb",
     "spec/downloader/nijigazou_sokuhou_spec.rb",
     "spec/downloader/okki_channel_spec.rb",
     "spec/downloader/ona_neet_spec.rb",
@@ -56,6 +58,7 @@ Gem::Specification.new do |s|
     "spec/samples/elog_bakufu/sample.html",
     "spec/samples/gazou_sokuhou/sample.html",
     "spec/samples/mink_channel/sample.html",
+    "spec/samples/nijiero_gazou/sample.html",
     "spec/samples/nijigazou_sokuhou/first.html",
     "spec/samples/nijigazou_sokuhou/global_last.html",
     "spec/samples/nijigazou_sokuhou/last.html",
@@ -72,11 +75,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/masarakki/ero_getter"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "2.0.14"
   s.summary = "ero getter"
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])

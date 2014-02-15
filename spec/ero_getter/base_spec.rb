@@ -29,8 +29,8 @@ describe EroGetter::Base do
     end
 
     describe "assign url_mapping" do
-      it { EroGetter.url_mapping.should have_key regex }
-      it { EroGetter.url_mapping[regex].should == @klazz }
+      it { expect(EroGetter.url_mapping).to have_key regex }
+      it { expect(EroGetter.url_mapping[regex]).to eq @klazz }
     end
 
     describe :instance_methods do
@@ -52,7 +52,7 @@ describe EroGetter::Base do
             'https://github.com/masarakki/ero_getter_chrome_extension'] }
         its(:sub_directory) { should == 'ero_getter_server/ero_getter_chrome_extension' }
         its(:directory) { should == '/tmp/test_class/ero_getter_server/ero_getter_chrome_extension' }
-        it { subject.send(:filename, "hogehoge.jpg", 1).should == 'hogehoge.jpg' }
+        it { expect(subject.send(:filename, "hogehoge.jpg", 1)).to eq 'hogehoge.jpg' }
 
         describe :after_run do
           context :not_set_after do
@@ -128,7 +128,7 @@ describe EroGetter::Base do
         end
       end
       @dl = klazz.new(url)
-      allow(@dl).to receive(:document).and_return(stub)
+      allow(@dl).to receive(:document).and_return(double)
     end
 
     context :css_not_found do
@@ -165,6 +165,6 @@ describe EroGetter::Base do
       end
       @dl = klazz.new(url)
     end
-    it { @dl.send(:filename, 'hogehoge.jpg', 0).should == '0000.jpg' }
+    it { expect(@dl.send(:filename, 'hogehoge.jpg', 0)).to eq '0000.jpg' }
   end
 end

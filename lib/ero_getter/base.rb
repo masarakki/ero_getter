@@ -5,7 +5,7 @@ require 'open-uri'
 require 'zipruby'
 require 'nkf'
 
-class EroGetter
+module EroGetter
   class Base
     def initialize(url, direction = :none)
       raise unless url.match url_regex

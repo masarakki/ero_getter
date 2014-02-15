@@ -1,4 +1,4 @@
-class EroGetter
+module EroGetter
   class Livedoor < Base
     class << self
       def blog_id(id)

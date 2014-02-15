@@ -6,7 +6,6 @@ describe NijieroGazou do
   subject { @dl }
 
   before do
-    FileUtils.stub(:mkdir_p)
     @dl = described_class.new(url)
     fake(:get, url, 'nijiero_gazou/sample.html')
   end

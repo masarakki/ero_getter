@@ -4,7 +4,6 @@ describe PmStyle do
   let(:url) { 'http://mxserver08.net/new_pm/main/movie13716.html' }
   subject { @dl }
   before do
-    FileUtils.stub(:mkdir_p)
     fake(:get, url, 'pm_style/test.html')
     @dl = PmStyle.new(url)
   end

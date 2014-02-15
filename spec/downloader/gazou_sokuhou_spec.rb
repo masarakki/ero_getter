@@ -6,7 +6,6 @@ describe GazouSokuhou do
   subject { @dl }
 
   before do
-    FileUtils.stub(:mkdir_p)
     @dl = GazouSokuhou.new(url)
     fake(:get, url, 'gazou_sokuhou/sample.html')
   end

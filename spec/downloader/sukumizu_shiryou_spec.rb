@@ -6,7 +6,6 @@ describe SukumizuShiryou do
   subject { @dl }
 
   before do
-    FileUtils.stub(:mkdir_p)
     @dl = SukumizuShiryou.new(url)
     fake(:get, url, 'sukumizu_shiryou/sample.html')
   end

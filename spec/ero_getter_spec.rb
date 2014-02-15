@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe EroGetter do
+  subject { EroGetter }
   before do
     EroGetter.clean
   end
 
   let(:regex) { %r{http://example.com/\d+.html} }
-  subject { @ero_getter }
   describe :class_methods do
-    subject { EroGetter }
     describe :url_mapping do
       its(:url_mapping) { should == {} }
       context :add_mapping do
@@ -28,7 +27,6 @@ describe EroGetter do
       @strategy = Class.new
       @regex = regex
       EroGetter.add_mapping(@regex, @strategy)
-      @ero_getter = EroGetter.new
     end
 
     describe :detect do

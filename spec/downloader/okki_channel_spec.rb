@@ -6,7 +6,6 @@ describe OkkiChannel do
   subject { @dl }
 
   before do
-    FileUtils.stub(:mkdir_p)
     @dl = OkkiChannel.new(url)
     fake(:get, url, 'okki_channel/sample.html')
   end

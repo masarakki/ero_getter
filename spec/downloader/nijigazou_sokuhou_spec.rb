@@ -6,7 +6,6 @@ describe NijigazouSokuhou do
   subject { @dl = NijigazouSokuhou.new(url) }
 
   before do
-    FileUtils.stub(:mkdir_p)
     fake(:get, url, 'nijigazou_sokuhou/middle.html')
   end
 

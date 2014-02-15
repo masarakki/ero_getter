@@ -6,7 +6,6 @@ describe ElogBakufu do
   subject { @dl }
 
   before do
-    FileUtils.stub(:mkdir_p)
     @dl = ElogBakufu.new(url)
     fake(:get, url, 'elog_bakufu/sample.html')
   end

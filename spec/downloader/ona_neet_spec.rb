@@ -6,7 +6,6 @@ describe OnaNeet do
   subject { @dl }
 
   before do
-    FileUtils.stub(:mkdir_p)
     @dl = OnaNeet.new(url)
     fake(:get, url, 'ona_neet/sample.html')
   end

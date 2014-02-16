@@ -7,6 +7,9 @@ RSpec.configure do |config|
   config.before do
     allow(FileUtils).to receive(:mkdir_p).and_return(true)
   end
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
 
 def fake(method, url, file)

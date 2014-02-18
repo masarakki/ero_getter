@@ -13,13 +13,13 @@ module EroGetter
       @direction = direction
     end
 
-    def base_dir
-      self.class.to_s.underscore
+    def self.base_dir
+      self.to_s.underscore
     end
 
     def directory
       unless @dir
-        @dir = File.join(EroGetter.directory, base_dir, sub_directory)
+        @dir = File.join(EroGetter.directory, self.class.base_dir, sub_directory)
         FileUtils.mkdir_p(@dir)
       end
       @dir

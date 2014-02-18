@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe OnaNeet do
+downloader OnaNeet do
   let(:url) { 'http://onaneet.com/archives/4988638.html' }
-  subject { @dl }
-
-  before do
-    @dl = OnaNeet.new(url)
-    fake(:get, url, 'ona_neet/sample.html')
-  end
-  its(:name) { should == 'オナニート速報' }
-  its(:title) { should == 'JKのスケブラが好物です : オナニート速報 2chのエロネタ語りまとめ' }
-  its(:base_dir) { should == 'ona_neet' }
-  its(:sub_directory) { should == '4988638' }
-  its("targets.count") { should == 20 }
+  let(:name) { 'オナニート速報' }
+  let(:title) { 'JKのスケブラが好物です : オナニート速報 2chのエロネタ語りまとめ' }
+  let(:base_dir) { 'ona_neet' }
+  let(:sub_directory) { '4988638' }
+  let(:count) { 20 }
+  let(:first_image_url) { "http://livedoor.blogimg.jp/okazu3ji/imgs/6/d/6d8c960b.jpg" }
 end

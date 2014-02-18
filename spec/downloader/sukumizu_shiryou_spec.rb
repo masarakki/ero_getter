@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe SukumizuShiryou do
+downloader SukumizuShiryou do
   let(:url) { 'http://iieshiryoudesu.blog96.fc2.com/blog-entry-2720.html' }
-  subject { @dl }
-
-  before do
-    @dl = SukumizuShiryou.new(url)
-    fake(:get, url, 'sukumizu_shiryou/sample.html')
-  end
-  its(:name) { should == 'スク水大好き!?いいえ資料です' }
-  its(:title) { should == 'エロ画像jpg】騎乗位セックスエロ画像　下から突き上げられて快楽におぼれる女の子がエロイ スク水大好き?いいえ資料です。' }
-  its(:base_dir) { should == 'sukumizu_shiryou' }
-  its(:sub_directory) { should == '2720' }
-  its("targets.count") { should == 30 }
+  let(:name) { 'スク水大好き!?いいえ資料です' }
+  let(:title) { 'エロ画像jpg】騎乗位セックスエロ画像　下から突き上げられて快楽におぼれる女の子がエロイ スク水大好き?いいえ資料です。' }
+  let(:base_dir) { 'sukumizu_shiryou' }
+  let(:sub_directory) { '2720' }
+  let(:count) { 30 }
+  let(:first_image_url) { "http://blog-imgs-44-origin.fc2.com/i/i/e/iieshiryoudesu/201111221804463d7.jpg" }
 end

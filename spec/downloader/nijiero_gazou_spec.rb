@@ -1,22 +1,15 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
-require 'pry'
-describe NijieroGazou do
+
+downloader NijieroGazou do
   let(:url) { 'http://niziero.blog.jp/archives/2633761.html' }
-  subject { @dl }
+  let(:name) { '二次エロ画像速報' }
+  let(:title) { '二次エロ画像速報 : 人気絶頂！艦隊これくしょん（艦これ）の二次エロ画像【４０枚】　その４８' }
+  let(:base_dir) { 'nijiero_gazou' }
+  let(:sub_directory) { '艦隊これくしょん/2633761' }
+  let(:count) { 40 }
+  let(:first_image_url) { "http://livedoor.blogimg.jp/windair3/imgs/6/9/69110e2c.jpg" }
 
-  before do
-    @dl = described_class.new(url)
-    fake(:get, url, 'nijiero_gazou/sample.html')
-  end
-  its(:name) { should == '二次エロ画像速報' }
-  its(:title) { should == '二次エロ画像速報 : 人気絶頂！艦隊これくしょん（艦これ）の二次エロ画像【４０枚】　その４８' }
-  its(:base_dir) { should == 'nijiero_gazou' }
-
-  its(:sub_directory) { should == '艦隊これくしょん/2633761' }
-  its("targets.count") { should == 40 }
-
-  its(:prev) { should == 'http://niziero.blog.jp/archives/2633702.html' }
-  its(:next) { should == 'http://niziero.blog.jp/archives/2670435.html' }
-
+  let(:prev_url) { 'http://niziero.blog.jp/archives/2633702.html' }
+  let(:next_url) { 'http://niziero.blog.jp/archives/2670435.html' }
 end

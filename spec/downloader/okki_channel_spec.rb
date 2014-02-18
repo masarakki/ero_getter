@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe OkkiChannel do
+downloader OkkiChannel do
   let(:url) { 'http://moegazo.info/archives/18023383.html' }
-  subject { @dl }
-
-  before do
-    @dl = OkkiChannel.new(url)
-    fake(:get, url, 'okki_channel/sample.html')
-  end
-  its(:name) { should == 'おっきちゃんねる' }
-  its(:title) { should == 'これがまどかが望んだ世界？　【同人】 : おっきちゃんねる　-エロ画像速報-' }
-  its(:base_dir) { should == 'okki_channel' }
-  its(:sub_directory) { should == '18023383' }
-  its("targets.count") { should == 30 }
+  let(:name) { 'おっきちゃんねる' }
+  let(:title) { 'これがまどかが望んだ世界？　【同人】 : おっきちゃんねる　-エロ画像速報-' }
+  let(:base_dir) { 'okki_channel' }
+  let(:sub_directory) { '18023383' }
+  let(:count) { 30 }
+  let(:first_image_url) { "http://livedoor.blogimg.jp/sweds-003/imgs/f/5/f50e6b22.jpg" }
 end

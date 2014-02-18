@@ -49,17 +49,30 @@ add spec/downloader#{site_name}_spec.rb
 
 ```ruby
 require 'spec_helper'
-describe #{SiteName} do
-  subject { @dl }
+
+downloader #{SiteName} do
   let(:url) { 'http://example.com/archives/01010101.html' }
-  before do
-    @dl = #{SiteName}.new(url)
-    fake(:get, url, '#{site_name}/sample.html')
-  end
-  its(:sub_directory) { should == '01010101' }
-  its("targets.count") { should == #{numbers of image} }
+  let(:name) { "#{SiteName}" }
+  let(:title) { "#{PageTitle}: #{SiteName}" }
+  let(:base_dir) { #{site_name} }
+  let(:sub_directory) { '01010101' }
+  let(:count) { #{numbers of image} }
+  let(:first_image_url) { "http://example.com/images/01010101/000001.jpg" }
 end
 ```
+
+if site has connection to prev and next pages, save `first.html`, `last.html` and `middle.html`,
+and add `:prev_url` and `:next_url` of middle page by `let` syntax.
+
+```ruby
+require 'spec_helper'
+
+downloader #{SiteName} do
+  let(:prev_url) { 'http://example.com/archives/01010100.html' }
+  let(:next_url) { 'http://example.com/archives/01010102.html' }
+end
+```
+
 
 then pull request!
 

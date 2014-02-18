@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe MinkChannel do
+downloader MinkChannel do
   let(:url) { "http://minkchan.com/blog-entry-3916.html" }
-  subject { @dl }
-  before do
-    @dl = MinkChannel.new(url)
-    fake(:get, url, 'mink_channel/sample.html')
-  end
-  its(:title) { should == 'マック店内で清純な制服JKの行儀悪いむっちり太もも晒し撮りうｐ - みんくちゃんねる' }
-  its(:sub_directory) { should == '2-3916' }
-  its('targets.count') { should == 15 }
+  let(:name) { "みんくちゃんねる" }
+  let(:title) { 'マック店内で清純な制服JKの行儀悪いむっちり太もも晒し撮りうｐ - みんくちゃんねる' }
+  let(:base_dir) { 'mink_channel' }
+  let(:sub_directory) { '2-3916' }
+  let(:count) { 15 }
+  let(:first_image_url) { "http://blog-imgs-47.fc2.com/m/i/n/minkch/i_20130705160606.jpg" }
 end

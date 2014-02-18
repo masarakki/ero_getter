@@ -8,7 +8,7 @@ describe EroGetter::Base do
   context :without_connection do
     before do
       _regex = regex
-      fake(:get, url, 'sample.html')
+      stub_request(:get, url).to_return(:body => File.read('spec/samples/sample.html'))
       @klazz = Class.new(EroGetter::Base) do
         name 'NijiEro BBS'
         url _regex
@@ -26,6 +26,7 @@ describe EroGetter::Base do
     describe :class_methods do
       subject { @klazz }
       its(:site_name) { should == 'NijiEro BBS' }
+      its(:base_dir) { should == 'test_class' }
     end
 
     describe "assign url_mapping" do
@@ -42,7 +43,6 @@ describe EroGetter::Base do
         end
         its(:name) { should == 'NijiEro BBS' }
         its(:url_regex) { should == regex }
-        its(:base_dir) { should == 'test_class' }
         its(:http_client) { should be_a HTTPClient }
         its(:document) { should be_a Nokogiri::HTML::Document }
         its(:title) { should == 'EroGetter Server' }

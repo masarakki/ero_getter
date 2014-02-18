@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe WakutekaSokuhou do
+downloader WakutekaSokuhou do
   let(:url) { 'http://blog.livedoor.jp/wakusoku/archives/1461175.html' }
-  subject { @dl }
-  before do
-    @dl = WakutekaSokuhou.new(url)
-    fake(:get, url, 'wakuteka_sokuhou/sample.html')
-  end
-
-  its(:title) { should == 'わくてか速報 : 【エロ画像】抜かずにはいられない虹エロ画像パート１１９４【詳細付き】 - livedoor Blog（ブログ）' }
-  its(:sub_directory) { should == '1461175' }
-  its("targets.count") { should == 37 }
+  let(:name) { "わくてか速報" }
+  let(:title) { 'わくてか速報 : 【エロ画像】抜かずにはいられない虹エロ画像パート１１９４【詳細付き】 - livedoor Blog（ブログ）' }
+  let(:base_dir) { 'wakuteka_sokuhou' }
+  let(:sub_directory) { '1461175' }
+  let(:count) { 37 }
+  let(:first_image_url) { 'http://livedoor.blogimg.jp/wakusoku/imgs/b/d/bda97b8d.jpg' }
 end

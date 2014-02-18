@@ -11,11 +11,3 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
-
-def fake(method, url, file)
-  stub_request(method, url).to_return(:body => File.read(sample_path(file)))
-end
-
-def sample_path(file)
-  File.join(File.dirname(__FILE__), 'samples', file)
-end

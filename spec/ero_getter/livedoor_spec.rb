@@ -9,10 +9,6 @@ describe EroGetter::Livedoor do
       blog_id 'hoge'
     end
   end
-  it { subject.instance_methods.should include :url_regex }
-  it do
-    lambda {
-      subject.new('http://blog.livedoor.jp/hoge/archives/101010.html')
-    }.should_not raise_error
-  end
+  it { expect(subject.instance_methods).to be_include :url_regex }
+  it { expect { subject.new('http://blog.livedoor.jp/hoge/archives/101010.html') }.not_to raise_error }
 end

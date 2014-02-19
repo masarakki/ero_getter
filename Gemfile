@@ -1,21 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'activesupport'
-gem 'httpclient'
-gem 'zipruby'
-gem 'nokogiri'
-
-group :development, :test do
-  gem 'rspec'
-  gem 'guard-rspec'
-  gem 'spork'
-  gem 'guard-spork'
-  gem 'bundler'
-  gem 'jeweler'
-  gem 'pry'
-  gem 'pry-doc'
-end
-
-group :test do
-  gem 'webmock'
-end
+# Specify your gem's dependencies in test_gem.gemspec
+gemspec

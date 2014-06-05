@@ -1,6 +1,8 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'ero_getter'
 require 'webmock/rspec'
+require 'pry'
+require 'pry-doc'
 
 RSpec.configure do |config|
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}

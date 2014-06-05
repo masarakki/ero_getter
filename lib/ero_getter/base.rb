@@ -156,7 +156,6 @@ module EroGetter
       end
     end
 
-    private
     def run_next?
       direction != :prev && respond_to?(:next) && self.next != nil
     end

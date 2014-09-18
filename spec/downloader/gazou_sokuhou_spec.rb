@@ -8,5 +8,5 @@ downloader GazouSokuhou do
   let(:base_dir) { 'gazou_sokuhou' }
   let(:sub_directory) { '51977311' }
   let(:count) { 31 }
-  let(:first_image_url) { "http://livedoor.blogimg.jp/poor_bugaboo/imgs/3/b/3bcb4c3a.jpg" }
+  let(:first_image_url) { 'http://livedoor.blogimg.jp/poor_bugaboo/imgs/3/b/3bcb4c3a.jpg' }
 end

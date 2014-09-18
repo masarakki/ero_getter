@@ -8,5 +8,5 @@ downloader ElogBakufu do
   let(:base_dir) { 'elog_bakufu' }
   let(:sub_directory) { '7955' }
   let(:count) { 40 }
-  let(:first_image_url) { "http://bakufu.jp/wp-content/uploads/2013/06/130621d_0001.jpg" }
+  let(:first_image_url) { 'http://bakufu.jp/wp-content/uploads/2013/06/130621d_0001.jpg' }
 end

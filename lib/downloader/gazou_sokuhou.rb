@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 class GazouSokuhou < EroGetter::Base
-
   name 'がぞー速報'
   url %r{http://stalker.livedoor.biz/archives/\d+.html}
 
-  target "img.pict" do |path|
-    if path.parent.name == "a" && path.parent[:href] =~ /jpe?g|gif|png$/
+  target 'img.pict' do |path|
+    if path.parent.name == 'a' && path.parent[:href] =~ /jpe?g|gif|png$/
       path.parent[:href]
     else
       path[:src]
@@ -16,6 +15,5 @@ class GazouSokuhou < EroGetter::Base
     url.match(/(\d+).html/)[1]
   end
 
-  filename { |attr| "%04d%s" % [attr[:index], attr[:ext]] }
-
+  filename { |attr| format('%04d%s', attr[:index], attr[:ext]) }
 end

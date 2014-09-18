@@ -3,7 +3,7 @@ class SukumizuShiryou < EroGetter::Base
   name 'スク水大好き!?いいえ資料です'
   url %r{http://iieshiryoudesu.blog96.fc2.com/blog-entry-(\d+).html}
 
-  target ".ently_text a > img" do |path|
+  target '.ently_text a > img' do |path|
     path.parent[:href] if path.parent[:href] =~ /jpe?g|png|gif$/
   end
 
@@ -11,6 +11,5 @@ class SukumizuShiryou < EroGetter::Base
     url.match(/(\d+).html/)[1]
   end
 
-  filename { |attr| "%04d%s" % [attr[:index], attr[:ext]] }
-
+  filename { |attr| format('%04d%s', attr[:index], attr[:ext]) }
 end

@@ -8,5 +8,5 @@ downloader OnaNeet do
   let(:base_dir) { 'ona_neet' }
   let(:sub_directory) { '4988638' }
   let(:count) { 20 }
-  let(:first_image_url) { "http://livedoor.blogimg.jp/okazu3ji/imgs/6/d/6d8c960b.jpg" }
+  let(:first_image_url) { 'http://livedoor.blogimg.jp/okazu3ji/imgs/6/d/6d8c960b.jpg' }
 end

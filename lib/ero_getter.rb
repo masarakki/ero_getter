@@ -5,7 +5,7 @@ require 'ero_getter/livedoor'
 module EroGetter
   def self.directory
     path = File.join ENV['HOME'], 'ero_getter'
-    puts path unless Dir.exists?(path)
+    puts path unless Dir.exist?(path)
     path
   end
 
@@ -30,7 +30,7 @@ module EroGetter
 
   def self.download(url)
     klazz = detect(url)
-    raise unless klazz
+    fail unless klazz
     klazz.new(url).run
   end
 end

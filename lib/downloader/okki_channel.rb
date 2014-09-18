@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 class OkkiChannel < EroGetter::Base
-
-  name "おっきちゃんねる"
+  name 'おっきちゃんねる'
   url %r{http://moegazo.info/archives/(\d+).html}
 
-  target ".article-body-inner a > img" do |path|
+  target '.article-body-inner a > img' do |path|
     path.parent[:href] if path.parent[:href] =~ /jpe?g|png|gif$/
   end
 
@@ -12,5 +11,5 @@ class OkkiChannel < EroGetter::Base
     url.match(/(\d+).html/)[1]
   end
 
-  filename { |attr| "%04d%s" % [attr[:index], attr[:ext]] }
+  filename { |attr| format('%04d%s', attr[:index], attr[:ext]) }
 end

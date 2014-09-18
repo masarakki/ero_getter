@@ -8,7 +8,7 @@ downloader NijieroGazou do
   let(:base_dir) { 'nijiero_gazou' }
   let(:sub_directory) { '艦隊これくしょん/2633761' }
   let(:count) { 40 }
-  let(:first_image_url) { "http://livedoor.blogimg.jp/windair3/imgs/6/9/69110e2c.jpg" }
+  let(:first_image_url) { 'http://livedoor.blogimg.jp/windair3/imgs/6/9/69110e2c.jpg' }
 
   let(:prev_url) { 'http://niziero.blog.jp/archives/2633702.html' }
   let(:next_url) { 'http://niziero.blog.jp/archives/2670435.html' }

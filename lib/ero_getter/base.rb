@@ -7,14 +7,16 @@ require 'nkf'
 
 module EroGetter
   class Base
+    attr_reader :url, :direction
+
     def initialize(url, direction = :none)
-      raise unless url.match url_regex
+      fail unless url.match url_regex
       @url = url
       @direction = direction
     end
 
     def self.base_dir
-      self.to_s.underscore
+      to_s.underscore
     end
 
     def directory
@@ -27,14 +29,6 @@ module EroGetter
 
     def http_client
       @http_client ||= HTTPClient.new
-    end
-
-    def url
-      @url
-    end
-
-    def direction
-      @direction
     end
 
     def html
@@ -52,19 +46,19 @@ module EroGetter
     def run
       targets.each_with_index do |target_url, index|
         if target_url =~ /.*\.zip$/
-          save_zip(target_url, index)
+          save_zip(target_url)
         else
           save_image(target_url, index)
         end
       end
-      self.class.new(self.prev, :prev).run if run_prev?
+      self.class.new(prev, :prev).run if run_prev?
       self.class.new(self.next, :next).run if run_next?
     end
 
     def get_target(target, count = 0)
-      response = http_client.get(target, :header => {:referer => url}, :follow_redirect => true)
+      response = http_client.get(target, header: { referer: url }, follow_redirect: true)
       unless response.status == 200
-        raise target unless count < 3
+        fail target unless count < 3
         sleep 2
         return get_target target, count + 1
       end
@@ -72,15 +66,15 @@ module EroGetter
     end
 
     def save_image(target_url, index)
-      _filename = filename(File.basename(target_url), index)
+      filename = fullpath(File.basename(target_url), index)
       response = get_target(target_url)
-      File.open(File.join(directory, _filename), "wb") {|f| f.write response.body }
+      File.open(File.join(directory, filename), 'wb') { |f| f.write response.body }
     end
 
-    def save_zip(target_url, index)
+    def save_zip(target_url)
       response = get_target(target_url)
-      unzip(response.body).each do |_filename, data|
-        File.open(File.join(directory, _filename), "wb") {|f| f.write data }
+      unzip(response.body).each do |filename, data|
+        File.open(File.join(directory, filename), 'wb') { |f| f.write data }
       end
     end
 
@@ -118,7 +112,7 @@ module EroGetter
         define_method(:targets) do
           unless instance_variable_defined?(:@targets)
             items = document.css(css_selector).map do |elm|
-              yield(elm)
+              block.call(elm)
             end
             instance_variable_set(:@targets, items.compact)
           end
@@ -129,7 +123,7 @@ module EroGetter
       def sub_directory(&block)
         define_method(:sub_directory) do
           unless instance_variable_defined?(:@sub_directory)
-            instance_variable_set(:@sub_directory, self.instance_eval(&block))
+            instance_variable_set(:@sub_directory, instance_eval(&block))
           end
           instance_variable_get(:@sub_directory)
         end
@@ -141,8 +135,7 @@ module EroGetter
           define_method(method_name) do
             unless instance_variable_defined?(var_name)
               tag = document.css(css[index]).first
-              instance_variable_set(var_name,
-                tag && instance_exec(tag, &block) ? tag[:href] : nil)
+              instance_variable_set(var_name, tag && instance_exec(tag, &block) ? tag[:href] : nil)
             end
             instance_variable_get(var_name)
           end
@@ -150,23 +143,23 @@ module EroGetter
       end
 
       def filename(&block)
-        define_method(:_filename) do |attr|
-          yield(attr)
+        define_method(:_fullpath) do |attr|
+          block.call(attr)
         end
       end
     end
 
     def run_next?
-      direction != :prev && respond_to?(:next) && self.next != nil
+      direction != :prev && respond_to?(:next) && !self.next.nil?
     end
 
     def run_prev?
-      direction != :next && respond_to?(:prev) && self.prev != nil
+      direction != :next && respond_to?(:prev) && !prev.nil?
     end
 
-    def filename(basename, index)
-      if respond_to?(:_filename)
-        _filename(:index => index, :basename => basename, :ext => File.extname(basename))
+    def fullpath(basename, index)
+      if respond_to?(:_fullpath)
+        _fullpath(index: index, basename: basename, ext: File.extname(basename))
       else
         basename
       end

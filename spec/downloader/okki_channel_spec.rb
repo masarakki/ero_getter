@@ -8,5 +8,5 @@ downloader OkkiChannel do
   let(:base_dir) { 'okki_channel' }
   let(:sub_directory) { '18023383' }
   let(:count) { 30 }
-  let(:first_image_url) { "http://livedoor.blogimg.jp/sweds-003/imgs/f/5/f50e6b22.jpg" }
+  let(:first_image_url) { 'http://livedoor.blogimg.jp/sweds-003/imgs/f/5/f50e6b22.jpg' }
 end

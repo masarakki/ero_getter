@@ -8,5 +8,5 @@ downloader SukumizuShiryou do
   let(:base_dir) { 'sukumizu_shiryou' }
   let(:sub_directory) { '2720' }
   let(:count) { 30 }
-  let(:first_image_url) { "http://blog-imgs-44-origin.fc2.com/i/i/e/iieshiryoudesu/201111221804463d7.jpg" }
+  let(:first_image_url) { 'http://blog-imgs-44-origin.fc2.com/i/i/e/iieshiryoudesu/201111221804463d7.jpg' }
 end

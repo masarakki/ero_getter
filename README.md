@@ -1,4 +1,9 @@
-# EroGetter [![Build Status](https://secure.travis-ci.org/masarakki/ero_getter.png)](http://travis-ci.org/masarakki/ero_getter) [![Dependency Status](https://gemnasium.com/masarakki/ero_getter.png)](http://gemnasium.com/masarakki/ero_getter)
+[![Build Status](https://secure.travis-ci.org/masarakki/ero_getter.png)](http://travis-ci.org/masarakki/ero_getter)
+[![Dependency Status](https://gemnasium.com/masarakki/ero_getter.png)](http://gemnasium.com/masarakki/ero_getter)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/masarakki/ero_getter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/masarakki/ero_getter/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/masarakki/ero_getter/badge.png?branch=master)](https://coveralls.io/r/masarakki/ero_getter?branch=master)
+
+# EroGetter 
 
 ero_getter is downloader for ero gazou.
 

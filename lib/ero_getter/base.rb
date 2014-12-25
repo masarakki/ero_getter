@@ -44,15 +44,13 @@ module EroGetter
     end
 
     def run
-      targets.each_with_index do |target_url, index|
-        if target_url =~ /.*\.zip$/
-          save_zip(target_url)
-        else
-          save_image(target_url, index)
-        end
-      end
+      targets.each_with_index { |target_url, index| save_item(target_url, index) }
       self.class.new(prev, :prev).run if run_prev?
       self.class.new(self.next, :next).run if run_next?
+    end
+
+    def save_item(url, index)
+      url =~ /.*\.zip$/ ? save_zip(url) : save_image(url, index)
     end
 
     def get_target(target, count = 0)
